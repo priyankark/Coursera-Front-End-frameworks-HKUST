@@ -11,7 +11,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/mystyles.css" rel="stylesheet">
+    <link href="css/mystyles-old.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -62,7 +62,7 @@
             <li><a href="contactus.html">Contact</a></li>
         </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a data-toggle="modal" data-target="#loginModal">
+                <li><a onclick="clicked()">                                                   <!-- data-toggle="modal" data-target="#loginModal"> -->
                     <span class="glyphicon glyphicon-log-in"></span> Login</a>
                 </li>
             </ul>
@@ -186,8 +186,8 @@
                     <img src="img/logo.png" class="img-responsive">
                 </div>
                 <div class="col-sm-2">
-                    <a type="button" class="btn btn-warning btn-block"
-                       data-toggle="modal" data-target="#reservet">Reserve Table </a>
+                    <a type="button" class="btn btn-warning btn-block" onclick="clicked2()">
+                       <!--data-toggle="modal" data-target="#reservet"> -->  Reserve Table </a>
                 </div>
             </div>
         </div>
@@ -250,8 +250,16 @@
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-xs" id="carousel-pause">
+                            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-danger btn-xs" id="carousel-play">
+                            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        </button>
+                    </div>
                 </div>
+
 
             </div>
         </div>
@@ -436,6 +444,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#mycarousel").carousel( { interval: 2000 } );
+        $("#carousel-pause").click(function(){
+            $("#mycarousel").carousel('pause');
+        });
+        $("#carousel-play").click(function(){
+            $("#mycarousel").carousel('cycle');
+        });
+    });
+    function clicked()
+    {
+        $('#loginModal').modal('show');
+    }
+    function clicked2()
+    {
+        $('#reservet').modal('show');
+    }
+</script>
 
 </body>
 
